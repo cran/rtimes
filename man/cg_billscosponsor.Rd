@@ -19,10 +19,12 @@ Use the index ID as member-id in your request.}
 by member-id) or 'withdrawn' (the 20 most recently withdrawn
 cosponsorships for member-id).}
 
-\item{key}{(character) your Propublica API key; pass in, or loads from .Renviron
-as \code{PROPUBLICA_API_KEY}. See \code{\link{rtimes-package}} for info on rate limits.}
+\item{key}{(character) your Propublica API key; pass in, or loads from 
+.Renviron as \code{PROPUBLICA_API_KEY}. See \code{\link{rtimes-package}} 
+for info on rate limits.}
 
-\item{...}{Curl options (debugging tools mostly) passed to \code{\link[httr]{GET}}}
+\item{...}{Curl options (debugging tools mostly) passed to 
+\code{\link[crul]{HttpClient}}}
 }
 \value{
 List of new members of he current Congress.
@@ -34,4 +36,20 @@ Get bill cosponsorship data for a particular member.
 \dontrun{
 cg_billscosponsor(memberid='B001260', type='cosponsored')
 }
+}
+\references{
+Congress API docs
+\url{https://projects.propublica.org/api-docs/congress-api/}
+}
+\seealso{
+Other congress: \code{\link{cg_memberappear}},
+  \code{\link{cg_memberbioroles}},
+  \code{\link{cg_memberbystatedistrict}},
+  \code{\link{cg_membersleaving}},
+  \code{\link{cg_memberslist}},
+  \code{\link{cg_membersponsorcompare}},
+  \code{\link{cg_membervotecompare}},
+  \code{\link{cg_membervotepositions}},
+  \code{\link{cg_newmembers}},
+  \code{\link{cg_rollcallvote}}
 }

@@ -3,8 +3,8 @@
 #' @export
 #' @template articlesearch
 #' @references 
-#' \url{http://developer.nytimes.com/docs/read/article_search_api_v2}
-#' \url{http://developer.nytimes.com/article_search_v2.json#/README}
+#' <http://developer.nytimes.com/docs/read/article_search_api_v2>
+#' <http://developer.nytimes.com/article_search_v2.json#/README>
 #' @examples \dontrun{
 #' # basic search - copyright, metadata, data, and facet slots
 #' (x <- as_search(q="bailout", begin_date = "20081001", 
@@ -36,6 +36,10 @@
 #' ## with facet filtering
 #' as_search(q="bailout", facet_field = 'section_name', begin_date = "20081001",
 #'    end_date = '20081201', facet_filter = TRUE)
+#'    
+#' # curl options
+#' x <- as_search(q="bailout", begin_date = "20081001", 
+#'   end_date = '20081005', callopts = list(verbose = TRUE))
 #' }
 `as_search` <- function(
   q, fq=NULL, sort=NULL, begin_date=NULL, end_date=NULL,
@@ -65,7 +69,7 @@
                   `api-key` = check_key(key, "NYTIMES_AS_KEY"),
                   facet_field = facet_field, facet_filter = facet_filter))
   res <- rtimes_GET(paste0(t_base(), "search/v2/articlesearch.json"), 
-                    c(args, ...), TRUE, callopts, ...)
+                    c(args, ...), TRUE, callopts)
   
   if (all_results) {
     hits <- res$response$meta$hits
@@ -78,7 +82,7 @@
       setTxtProgressBar(pb, i)
       args$page <- pgs[i]
       out[[i]] <- rtimes_GET(paste0(t_base(), "search/v2/articlesearch.json"), 
-                             c(args, ...), TRUE, callopts, ...)
+                             c(args, ...), TRUE, callopts)
     }
     
     dat <- bind(lapply(out, function(z) z$response$docs))

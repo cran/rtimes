@@ -8,7 +8,8 @@
 #' @param district (character) Specify the district number. Use 1 for states 
 #' with a single representative. (House requests only - districts with 
 #' Senate requests will be ignored.). required.
-#' @references \url{http://propublica.github.io/campaign-finance-api-docs}
+#' @references <http://propublica.github.io/campaign-finance-api-docs>
+#' @family campaign-finance
 #' @examples \dontrun{
 #' cf_candidate_state(campaign_cycle = 2014, state = "TX")
 #' cf_candidate_state(campaign_cycle = 2012, state = "NM")
@@ -31,7 +32,7 @@
   }
   url <- paste0(url, ".json")
   res <- rtimes_GET(url, list(), FALSE, 
-                    add_key(check_key(key, "PROPUBLICA_API_KEY")), ...)
+                    list(...), add_key(check_key(key, "PROPUBLICA_API_KEY")))
   dat <-  lapply(res$results[[1]]$other_cycles, function(z) {
     if (length(z$bill) == 0) z$bill <- NULL
     as.list(unlist(z, recursive = TRUE))

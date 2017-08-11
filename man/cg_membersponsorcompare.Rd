@@ -23,14 +23,16 @@ Use the index ID as member-id in your request.}
 
 \item{chamber}{One of 'house' or 'senate.}
 
-\item{key}{(character) your Propublica API key; pass in, or loads from .Renviron
-as \code{PROPUBLICA_API_KEY}. See \code{\link{rtimes-package}} for info on rate limits.}
+\item{key}{(character) your Propublica API key; pass in, or loads from 
+.Renviron as \code{PROPUBLICA_API_KEY}. See \code{\link{rtimes-package}} 
+for info on rate limits.}
 
-\item{...}{Curl options (debugging tools mostly) passed to \code{\link[httr]{GET}}}
+\item{...}{Curl options (debugging tools mostly) passed to 
+\code{\link[crul]{HttpClient}}}
 }
 \value{
 Compare bill sponsorship between two members who served in the same
-   Congress and chamber.
+Congress and chamber.
 }
 \description{
 Compare bill sponsorship between two members who served in the same Congress
@@ -41,4 +43,20 @@ and chamber.
 cg_membersponsorcompare(memberid_1 = 'S001181', memberid_2 = 'A000368', 
  congress_no = 112, chamber = 'senate')
 }
+}
+\references{
+Congress API docs
+\url{https://projects.propublica.org/api-docs/congress-api/}
+}
+\seealso{
+Other congress: \code{\link{cg_billscosponsor}},
+  \code{\link{cg_memberappear}},
+  \code{\link{cg_memberbioroles}},
+  \code{\link{cg_memberbystatedistrict}},
+  \code{\link{cg_membersleaving}},
+  \code{\link{cg_memberslist}},
+  \code{\link{cg_membervotecompare}},
+  \code{\link{cg_membervotepositions}},
+  \code{\link{cg_newmembers}},
+  \code{\link{cg_rollcallvote}}
 }

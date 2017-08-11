@@ -13,7 +13,8 @@ cf_candidate_new(campaign_cycle = NULL, key = NULL, ...)
 \item{key}{(character) your Propublica API key; pass in, or loads from .Renviron as 
 \code{PROPUBLICA_API_KEY}. See \code{\link{rtimes-package}} for info on rate limits.}
 
-\item{...}{Curl options (debugging tools mostly) passed to \code{\link[httr]{GET}}}
+\item{...}{Curl options (debugging tools mostly) passed to 
+\code{\link[crul]{HttpClient}}}
 }
 \description{
 Campaign finance - get new candidates
@@ -27,4 +28,10 @@ cf_candidate_new(campaign_cycle = 2014)
 }
 \references{
 \url{http://propublica.github.io/campaign-finance-api-docs}
+}
+\seealso{
+Other campaign-finance: \code{\link{cf_candidate_details}},
+  \code{\link{cf_candidate_leaders}},
+  \code{\link{cf_candidate_search}},
+  \code{\link{cf_candidate_state}}
 }

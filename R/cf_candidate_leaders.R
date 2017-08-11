@@ -15,7 +15,8 @@
 #'  \item Receipts Total `receipts-total`
 #'  \item Refund Total `refund-total`
 #' }
-#' @references \url{http://propublica.github.io/campaign-finance-api-docs}
+#' @references <http://propublica.github.io/campaign-finance-api-docs>
+#' @family campaign-finance
 #' @examples \dontrun{
 #' cf_candidate_leaders(campaign_cycle = 2010, category='end-cash')
 #' cf_candidate_leaders(campaign_cycle = 2008, category='receipts-total')
@@ -23,7 +24,7 @@
 
 `cf_candidate_leaders` <- function(campaign_cycle=NULL, category=NULL, key=NULL, ...) {
   url <- sprintf("%s/%s/candidates/leaders/%s.json", cf_base(), campaign_cycle, category)
-  res <- rtimes_GET(url, list(), FALSE, add_key(check_key(key, "PROPUBLICA_API_KEY")), ...)
+  res <- rtimes_GET(url, list(), FALSE, list(...), add_key(check_key(key, "PROPUBLICA_API_KEY")))
   df <- to_df(res$results)
   list(status = res$status, copyright = res$copyright, meta = NULL, data = df)
 }

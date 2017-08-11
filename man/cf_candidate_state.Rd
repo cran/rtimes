@@ -15,14 +15,15 @@ cf_candidate_state(campaign_cycle, state, chamber = NULL, district = NULL,
 
 \item{chamber}{(character) house or senate. required.}
 
-\item{district}{(character) Specify the district number. Use 1 for states 
-with a single representative. (House requests only - districts with 
+\item{district}{(character) Specify the district number. Use 1 for states
+with a single representative. (House requests only - districts with
 Senate requests will be ignored.). required.}
 
 \item{key}{(character) your Propublica API key; pass in, or loads from .Renviron as 
 \code{PROPUBLICA_API_KEY}. See \code{\link{rtimes-package}} for info on rate limits.}
 
-\item{...}{Curl options (debugging tools mostly) passed to \code{\link[httr]{GET}}}
+\item{...}{Curl options (debugging tools mostly) passed to 
+\code{\link[crul]{HttpClient}}}
 }
 \description{
 Campaign finance - candidates from a state
@@ -38,4 +39,10 @@ cf_candidate_state(campaign_cycle = 2016, state = "CA",
 }
 \references{
 \url{http://propublica.github.io/campaign-finance-api-docs}
+}
+\seealso{
+Other campaign-finance: \code{\link{cf_candidate_details}},
+  \code{\link{cf_candidate_leaders}},
+  \code{\link{cf_candidate_new}},
+  \code{\link{cf_candidate_search}}
 }

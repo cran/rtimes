@@ -1,5 +1,6 @@
 #' Get a list of members who have left the Senate or House or have announced plans to do so.
 #'
+#' @export
 #' @template propubkey
 #' @param memberid_1,memberid_2 The member's unique ID number (alphanumeric). To find a
 #'    member's ID number, get the list of members for the appropriate House
@@ -11,7 +12,9 @@
 #' @param congress_no The number of the Congress during which the members served.
 #' @param chamber One of 'house' or 'senate.
 #' @return List of new members of he current Congress.
-#' @export
+#' @references Congress API docs 
+#' <https://projects.propublica.org/api-docs/congress-api/>
+#' @family congress
 #' @examples \dontrun{
 #' cg_membervotecompare(memberid_1 = 'S001181', memberid_2 = 'A000368', 
 #'  congress_no = 112, chamber = 'senate')
@@ -21,7 +24,8 @@ cg_membervotecompare <- function(memberid_1 = NULL, memberid_2 = NULL,
   
   url <- sprintf('%s/members/%s/votes/%s/%s/%s.json', cg_base(), memberid_1, 
                  memberid_2, congress_no, chamber)
-  res <- rtimes_GET(url, list(), FALSE, add_key(check_key(key, "PROPUBLICA_API_KEY")), ...)
+  res <- rtimes_GET(url, list(), FALSE, 
+                    list(...), add_key(check_key(key, "PROPUBLICA_API_KEY")))
   df <- tibble::as_data_frame(res$results[[1]])
   list(status = res$status, copyright = res$copyright, meta = NULL, data = df)
 }

@@ -14,7 +14,9 @@
 #'    by member-id) or 'withdrawn' (the 20 most recently withdrawn
 #'    cosponsorships for member-id).
 #' @return List of new members of he current Congress.
-#'
+#' @references Congress API docs 
+#' <https://projects.propublica.org/api-docs/congress-api/>
+#' @family congress
 #' @examples \dontrun{
 #' cg_billscosponsor(memberid='B001260', type='cosponsored')
 #' }
@@ -22,7 +24,9 @@
 `cg_billscosponsor` <- function(memberid = NULL, type = NULL, key = NULL, ...) {
   url <- sprintf("%s/members/%s/bills/%s.json", cg_base(), memberid, type)
   res <- rtimes_GET(url, list(), FALSE, 
-                    add_key(check_key(key, "PROPUBLICA_API_KEY")), ...)
+                    list(...), add_key(check_key(key, "PROPUBLICA_API_KEY")))
+  res$results[[1]]$bills <- 
+    lapply(res$results[[1]]$bills, rc)
   dat <- tibble::as_data_frame(rbind_all_df(res$results[[1]]$bills))
   meta <- tibble::as_data_frame(pop(res$results[[1]], "bills"))
   list(copyright = cright(), meta = meta, data = dat)

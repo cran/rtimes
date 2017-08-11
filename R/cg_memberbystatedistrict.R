@@ -9,6 +9,9 @@
 #'    specify is higher than the total number of districts for that state,
 #'    a 404 response will be returned.
 #' @return List of new members of he current Congress.
+#' @references Congress API docs 
+#' <https://projects.propublica.org/api-docs/congress-api/>
+#' @family congress
 #' @examples \dontrun{
 #' cg_memberbystatedistrict(chamber='senate', state='NH')
 #' cg_memberbystatedistrict(chamber='senate', state='CA')
@@ -25,7 +28,8 @@
     stopifnot(!is.null(state))
     url <- sprintf("%s/members/%s/%s/%s/current.json", cg_base(), chamber, state, district)
   }
-  res <- rtimes_GET(url, list(), FALSE, add_key(check_key(key, "PROPUBLICA_API_KEY")), ...)
+  res <- rtimes_GET(url, list(), FALSE, 
+                    list(...), add_key(check_key(key, "PROPUBLICA_API_KEY")))
   dat <- tibble::as_data_frame(rbind_all_df(res$results[[1]]$bills))
   meta <- tibble::as_data_frame(pop(res$results[[1]], "bills"))
   list(copyright = cright(), meta = meta, data = dat)

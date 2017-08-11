@@ -12,12 +12,16 @@
 #'    http://bioguide.congress.gov/scripts/biodisplay.pl?index=C001041).
 #'    Use the index ID as member-id in your request.
 #' @return List of members of a particular chamber in a particular Congress.
+#' @references Congress API docs 
+#' <https://projects.propublica.org/api-docs/congress-api/>
+#' @family congress
 #' @examples \dontrun{
 #' cg_memberbioroles(memberid = 'S001181')
 #' }
 `cg_memberbioroles` <- function(memberid = NULL, key = NULL, ...) {
   url <- sprintf("%s/members/%s.json", cg_base(), memberid)
-  res <- rtimes_GET(url, list(), FALSE, add_key(check_key(key, "PROPUBLICA_API_KEY")), ...)
+  res <- rtimes_GET(url, list(), FALSE, 
+                    list(...), add_key(check_key(key, "PROPUBLICA_API_KEY")))
   dat <- lapply(res$results[[1]]$roles, function(z) {
     if (length(z$committees) == 0) {
       list(meta = tibble::as_data_frame(null_to_na(pop(z, "committees"))),

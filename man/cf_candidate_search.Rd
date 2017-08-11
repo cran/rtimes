@@ -15,18 +15,25 @@ cf_candidate_search(campaign_cycle = NULL, query = NULL, key = NULL, ...)
 \item{key}{(character) your Propublica API key; pass in, or loads from .Renviron as 
 \code{PROPUBLICA_API_KEY}. See \code{\link{rtimes-package}} for info on rate limits.}
 
-\item{...}{Curl options (debugging tools mostly) passed to \code{\link[httr]{GET}}}
+\item{...}{Curl options (debugging tools mostly) passed to 
+\code{\link[crul]{HttpClient}}}
 }
 \description{
 Campaign finance - candidate search
 }
 \examples{
 \dontrun{
-# cf_candidate_search(campaign_cycle = 2016, query='Wilson')
-# cf_candidate_search(campaign_cycle = 2008, query='obama')
+cf_candidate_search(campaign_cycle = 2016, query='Wilson')
+cf_candidate_search(campaign_cycle = 2008, query='obama')
 }
 }
 \references{
 \url{http://propublica.github.io/campaign-finance-api-docs}
+}
+\seealso{
+Other campaign-finance: \code{\link{cf_candidate_details}},
+  \code{\link{cf_candidate_leaders}},
+  \code{\link{cf_candidate_new}},
+  \code{\link{cf_candidate_state}}
 }
 \keyword{internal}

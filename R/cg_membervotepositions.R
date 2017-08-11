@@ -11,12 +11,16 @@
 #'    http://bioguide.congress.gov/scripts/biodisplay.pl?index=C001041).
 #'    Use the index ID as member-id in your request.
 #' @return List of new members of he current Congress.
+#' @references Congress API docs 
+#' <https://projects.propublica.org/api-docs/congress-api/>
+#' @family congress
 #' @examples \dontrun{
 #' cg_membervotepositions('S001181')
 #' }
 cg_membervotepositions <- function(memberid = NULL, key = NULL, ...) {
   url <- sprintf("%s/members/%s/votes.json", cg_base(), memberid)
-  res <- rtimes_GET(url, list(), FALSE, add_key(check_key(key, "PROPUBLICA_API_KEY")), ...)
+  res <- rtimes_GET(url, list(), FALSE, 
+                    list(...), add_key(check_key(key, "PROPUBLICA_API_KEY")))
   dat <-  lapply(res$results[[1]]$votes, function(z) {
     if (length(z$bill) == 0) z$bill <- NULL
     as.list(unlist(z, recursive = TRUE))

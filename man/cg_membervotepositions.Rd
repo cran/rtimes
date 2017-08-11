@@ -16,10 +16,12 @@ name is linked to a record by index ID (e.g.,
 http://bioguide.congress.gov/scripts/biodisplay.pl?index=C001041).
 Use the index ID as member-id in your request.}
 
-\item{key}{(character) your Propublica API key; pass in, or loads from .Renviron
-as \code{PROPUBLICA_API_KEY}. See \code{\link{rtimes-package}} for info on rate limits.}
+\item{key}{(character) your Propublica API key; pass in, or loads from 
+.Renviron as \code{PROPUBLICA_API_KEY}. See \code{\link{rtimes-package}} 
+for info on rate limits.}
 
-\item{...}{Curl options (debugging tools mostly) passed to \code{\link[httr]{GET}}}
+\item{...}{Curl options (debugging tools mostly) passed to 
+\code{\link[crul]{HttpClient}}}
 }
 \value{
 List of new members of he current Congress.
@@ -32,4 +34,20 @@ plans to do so.
 \dontrun{
 cg_membervotepositions('S001181')
 }
+}
+\references{
+Congress API docs
+\url{https://projects.propublica.org/api-docs/congress-api/}
+}
+\seealso{
+Other congress: \code{\link{cg_billscosponsor}},
+  \code{\link{cg_memberappear}},
+  \code{\link{cg_memberbioroles}},
+  \code{\link{cg_memberbystatedistrict}},
+  \code{\link{cg_membersleaving}},
+  \code{\link{cg_memberslist}},
+  \code{\link{cg_membersponsorcompare}},
+  \code{\link{cg_membervotecompare}},
+  \code{\link{cg_newmembers}},
+  \code{\link{cg_rollcallvote}}
 }

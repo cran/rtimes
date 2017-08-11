@@ -269,37 +269,37 @@ devtools::install_github(&quot;ropengov/rtimes&quot;)
 
 <pre><code class="r">out &lt;- cg_billscosponsor(memberid=&#39;S001181&#39;, type=&#39;cosponsored&#39;)
 out$data
-#&gt; # A tibble: 20 x 25
-#&gt;    congress       bill_id bill_type       number
-#&gt;       &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;
-#&gt;  1      115     s1068-115         s       S.1068
-#&gt;  2      115     s1045-115         s       S.1045
-#&gt;  3      115   sres154-115      sres    S.RES.154
-#&gt;  4      115   sres155-115      sres    S.RES.155
-#&gt;  5      115     s1035-115         s       S.1035
-#&gt;  6      115     s1025-115         s       S.1025
-#&gt;  7      115   sres153-115      sres    S.RES.153
-#&gt;  8      115     s1006-115         s       S.1006
-#&gt;  9      115      s372-115         s        S.372
-#&gt; 10      115      s708-115         s        S.708
-#&gt; 11      115      s985-115         s        S.985
-#&gt; 12      115      s980-115         s        S.980
-#&gt; 13      115      s955-115         s        S.955
-#&gt; 14      115      s954-115         s        S.954
-#&gt; 15      115      s944-115         s        S.944
-#&gt; 16      115 sconres13-115   sconres S.CON.RES.13
-#&gt; 17      115      s497-115         s        S.497
-#&gt; 18      115      s936-115         s        S.936
-#&gt; 19      115      s766-115         s        S.766
-#&gt; 20      115      s912-115         s        S.912
-#&gt; # ... with 21 more variables: bill_uri &lt;chr&gt;, title &lt;chr&gt;,
-#&gt; #   cosponsored_date &lt;chr&gt;, sponsor_id &lt;chr&gt;, sponsor_uri &lt;chr&gt;,
-#&gt; #   gpo_pdf_uri &lt;chr&gt;, congressdotgov_url &lt;chr&gt;, govtrack_url &lt;chr&gt;,
-#&gt; #   introduced_date &lt;chr&gt;, active &lt;chr&gt;, house_passage &lt;chr&gt;,
-#&gt; #   senate_passage &lt;chr&gt;, enacted &lt;chr&gt;, vetoed &lt;chr&gt;, cosponsors &lt;chr&gt;,
-#&gt; #   committees &lt;chr&gt;, primary_subject &lt;chr&gt;, summary &lt;chr&gt;,
-#&gt; #   summary_short &lt;chr&gt;, latest_major_action_date &lt;chr&gt;,
-#&gt; #   latest_major_action &lt;chr&gt;
+#&gt; # A tibble: 20 x 26
+#&gt;    congress     bill_id bill_type    number
+#&gt;       &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;
+#&gt;  1      115    s756-115         s     S.756
+#&gt;  2      115   s1616-115         s    S.1616
+#&gt;  3      115   s1738-115         s    S.1738
+#&gt;  4      115    s581-115         s     S.581
+#&gt;  5      115   s1710-115         s    S.1710
+#&gt;  6      115   s1715-115         s    S.1715
+#&gt;  7      115   s1726-115         s    S.1726
+#&gt;  8      115   s1730-115         s    S.1730
+#&gt;  9      115   s1706-115         s    S.1706
+#&gt; 10      115   s1692-115         s    S.1692
+#&gt; 11      115   s1693-115         s    S.1693
+#&gt; 12      115   s1688-115         s    S.1688
+#&gt; 13      115 sres241-115      sres S.RES.241
+#&gt; 14      115   s1675-115         s    S.1675
+#&gt; 15      115   s1654-115         s    S.1654
+#&gt; 16      115 sres234-115      sres S.RES.234
+#&gt; 17      115   s1640-115         s    S.1640
+#&gt; 18      115 sres233-115      sres S.RES.233
+#&gt; 19      115   s1629-115         s    S.1629
+#&gt; 20      115 sres230-115      sres S.RES.230
+#&gt; # ... with 22 more variables: bill_uri &lt;chr&gt;, title &lt;chr&gt;,
+#&gt; #   cosponsored_date &lt;chr&gt;, sponsor_title &lt;chr&gt;, sponsor_id &lt;chr&gt;,
+#&gt; #   sponsor_name &lt;chr&gt;, sponsor_state &lt;chr&gt;, sponsor_party &lt;chr&gt;,
+#&gt; #   sponsor_uri &lt;chr&gt;, gpo_pdf_uri &lt;chr&gt;, congressdotgov_url &lt;chr&gt;,
+#&gt; #   govtrack_url &lt;chr&gt;, introduced_date &lt;chr&gt;, active &lt;lgl&gt;,
+#&gt; #   senate_passage &lt;chr&gt;, cosponsors &lt;int&gt;, committees &lt;chr&gt;,
+#&gt; #   primary_subject &lt;chr&gt;, summary &lt;chr&gt;, summary_short &lt;chr&gt;,
+#&gt; #   latest_major_action_date &lt;chr&gt;, latest_major_action &lt;chr&gt;
 </code></pre>
 
 <h3>Member appearances</h3>
@@ -347,80 +347,54 @@ res$copyright
 #&gt; [1] &quot;Copyright (c) 2015 The New York Times Company.  All Rights Reserved.&quot;
 res$meta
 #&gt; # A tibble: 1 x 3
-#&gt;    hits  time offset
-#&gt;   &lt;int&gt; &lt;int&gt;  &lt;int&gt;
-#&gt; 1  1209     6      0
+#&gt;    hits offset  time
+#&gt;   &lt;int&gt;  &lt;int&gt; &lt;int&gt;
+#&gt; 1  1203      0     8
 res$data
-#&gt; # A tibble: 38 x 41
-#&gt;                                                               web_url
-#&gt;                                                                 &lt;chr&gt;
-#&gt;  1   https://www.nytimes.com/2008/10/05/magazine/05wwln-safire-t.html
-#&gt;  2   https://www.nytimes.com/2008/10/05/magazine/05wwln-safire-t.html
-#&gt;  3   https://www.nytimes.com/2008/10/05/magazine/05wwln-safire-t.html
-#&gt;  4   https://www.nytimes.com/2008/10/05/magazine/05wwln-safire-t.html
-#&gt;  5   https://krugman.blogs.nytimes.com/2008/10/01/bailout-narratives/
-#&gt;  6       https://economix.blogs.nytimes.com/2008/10/28/bailout-tally/
-#&gt;  7 https://www.nytimes.com/2008/11/19/business/economy/19bailout.html
-#&gt;  8 https://www.nytimes.com/2008/11/19/business/economy/19bailout.html
-#&gt;  9 https://www.nytimes.com/2008/11/19/business/economy/19bailout.html
-#&gt; 10 https://www.nytimes.com/2008/11/19/business/economy/19bailout.html
-#&gt; # ... with 28 more rows, and 40 more variables: snippet &lt;chr&gt;,
-#&gt; #   lead_paragraph &lt;chr&gt;, abstract &lt;chr&gt;, print_page &lt;chr&gt;, source &lt;chr&gt;,
-#&gt; #   pub_date &lt;chr&gt;, document_type &lt;chr&gt;, news_desk &lt;chr&gt;,
-#&gt; #   section_name &lt;chr&gt;, subsection_name &lt;chr&gt;, type_of_material &lt;chr&gt;,
-#&gt; #   `_id` &lt;chr&gt;, word_count &lt;chr&gt;, slideshow_credits &lt;lgl&gt;,
-#&gt; #   headline.main &lt;chr&gt;, headline.content_kicker &lt;chr&gt;,
-#&gt; #   headline.kicker &lt;chr&gt;, headline.print_headline &lt;chr&gt;,
-#&gt; #   byline.original &lt;chr&gt;, multimedia_width &lt;chr&gt;, multimedia_url &lt;chr&gt;,
-#&gt; #   multimedia_height &lt;chr&gt;, multimedia_subtype &lt;chr&gt;,
-#&gt; #   multimedia_type &lt;chr&gt;, multimedia_legacy.xlargewidth &lt;chr&gt;,
-#&gt; #   multimedia_legacy.xlarge &lt;chr&gt;, multimedia_legacy.xlargeheight &lt;chr&gt;,
-#&gt; #   multimedia_legacy.thumbnailheight &lt;chr&gt;,
-#&gt; #   multimedia_legacy.thumbnail &lt;chr&gt;,
-#&gt; #   multimedia_legacy.thumbnailwidth &lt;chr&gt;, keywords_rank &lt;chr&gt;,
-#&gt; #   keywords_is_major &lt;chr&gt;, keywords_name &lt;chr&gt;, keywords_value &lt;chr&gt;,
-#&gt; #   byline.person_organization &lt;chr&gt;, byline.person_role &lt;chr&gt;,
-#&gt; #   byline.person_firstname &lt;chr&gt;, byline.person_rank &lt;chr&gt;,
-#&gt; #   byline.person_lastname &lt;chr&gt;, byline.person_middlename &lt;chr&gt;
+#&gt; # A tibble: 10 x 19
+#&gt;                                                                        web_url
+#&gt;  *                                                                       &lt;chr&gt;
+#&gt;  1 https://dealbook.nytimes.com/2008/10/17/nader-displays-new-fervor-on-the-ba
+#&gt;  2              https://dealbook.nytimes.com/2008/10/07/its-the-economy-redux/
+#&gt;  3                https://www.nytimes.com/2008/12/01/opinion/l01citigroup.html
+#&gt;  4             https://www.nytimes.com/2008/12/01/business/economy/01auto.html
+#&gt;  5                    https://www.nytimes.com/2008/12/01/business/01tanta.html
+#&gt;  6                      https://www.nytimes.com/2008/12/01/business/01uaw.html
+#&gt;  7         https://www.nytimes.com/2008/12/01/business/economy/01stimulus.html
+#&gt;  8                      https://www.nytimes.com/2008/11/30/opinion/30sun1.html
+#&gt;  9                    https://www.nytimes.com/2008/11/30/opinion/30boskin.html
+#&gt; 10                   https://www.nytimes.com/2008/11/30/business/30dealer.html
+#&gt; # ... with 18 more variables: snippet &lt;chr&gt;, abstract &lt;chr&gt;, source &lt;chr&gt;,
+#&gt; #   multimedia &lt;list&gt;, keywords &lt;list&gt;, pub_date &lt;chr&gt;,
+#&gt; #   document_type &lt;chr&gt;, section_name &lt;chr&gt;, type_of_material &lt;chr&gt;,
+#&gt; #   `_id` &lt;chr&gt;, word_count &lt;int&gt;, score &lt;dbl&gt;, print_page &lt;chr&gt;,
+#&gt; #   new_desk &lt;chr&gt;, headline.main &lt;chr&gt;, headline.kicker &lt;chr&gt;,
+#&gt; #   headline.print_headline &lt;chr&gt;, byline.original &lt;chr&gt;
 </code></pre>
 
 <p>Another e.g., Search for keyword <em>money</em>, within the <em>Sports</em> and <em>Foreign</em> news desks</p>
 
 <pre><code class="r">res &lt;- as_search(q = &quot;money&quot;, fq = &#39;news_desk:(&quot;Sports&quot; &quot;Foreign&quot;)&#39;)
 res$data
-#&gt; # A tibble: 92 x 44
+#&gt; # A tibble: 10 x 19
 #&gt;                                                                        web_url
-#&gt;                                                                          &lt;chr&gt;
-#&gt;  1 https://www.nytimes.com/2017/04/04/world/americas/argentina-cristina-fernan
-#&gt;  2 https://www.nytimes.com/2017/04/04/world/americas/argentina-cristina-fernan
-#&gt;  3 https://www.nytimes.com/2017/04/04/world/americas/argentina-cristina-fernan
-#&gt;  4 https://www.nytimes.com/2017/04/04/world/americas/argentina-cristina-fernan
-#&gt;  5 https://www.nytimes.com/2017/04/04/world/americas/argentina-cristina-fernan
-#&gt;  6 https://www.nytimes.com/2017/04/04/world/americas/argentina-cristina-fernan
-#&gt;  7 https://www.nytimes.com/2017/04/04/world/americas/argentina-cristina-fernan
-#&gt;  8 https://www.nytimes.com/2017/04/04/world/americas/argentina-cristina-fernan
-#&gt;  9 https://www.nytimes.com/2017/04/04/world/americas/argentina-cristina-fernan
-#&gt; 10 https://www.nytimes.com/2017/04/04/world/americas/argentina-cristina-fernan
-#&gt; # ... with 82 more rows, and 43 more variables: snippet &lt;chr&gt;,
-#&gt; #   lead_paragraph &lt;chr&gt;, abstract &lt;chr&gt;, print_page &lt;chr&gt;, source &lt;chr&gt;,
-#&gt; #   pub_date &lt;chr&gt;, document_type &lt;chr&gt;, news_desk &lt;chr&gt;,
-#&gt; #   section_name &lt;chr&gt;, subsection_name &lt;chr&gt;, type_of_material &lt;chr&gt;,
-#&gt; #   `_id` &lt;chr&gt;, word_count &lt;int&gt;, slideshow_credits &lt;lgl&gt;,
-#&gt; #   headline.main &lt;chr&gt;, headline.print_headline &lt;chr&gt;,
-#&gt; #   headline.kicker &lt;chr&gt;, byline.original &lt;chr&gt;, multimedia_width &lt;chr&gt;,
-#&gt; #   multimedia_url &lt;chr&gt;, multimedia_rank &lt;chr&gt;, multimedia_height &lt;chr&gt;,
-#&gt; #   multimedia_subtype &lt;chr&gt;, multimedia_type &lt;chr&gt;,
-#&gt; #   multimedia_legacy.thumbnailheight &lt;chr&gt;,
-#&gt; #   multimedia_legacy.thumbnail &lt;chr&gt;,
-#&gt; #   multimedia_legacy.thumbnailwidth &lt;chr&gt;,
-#&gt; #   multimedia_legacy.xlargewidth &lt;chr&gt;, multimedia_legacy.xlarge &lt;chr&gt;,
-#&gt; #   multimedia_legacy.xlargeheight &lt;chr&gt;, multimedia_legacy.wide &lt;chr&gt;,
-#&gt; #   multimedia_legacy.widewidth &lt;chr&gt;, multimedia_legacy.wideheight &lt;chr&gt;,
-#&gt; #   keywords_isMajor &lt;chr&gt;, keywords_rank &lt;int&gt;, keywords_name &lt;chr&gt;,
-#&gt; #   keywords_value &lt;chr&gt;, byline.person_organization &lt;chr&gt;,
-#&gt; #   byline.person_role &lt;chr&gt;, byline.person_rank &lt;int&gt;,
-#&gt; #   byline.person_firstname &lt;chr&gt;, byline.person_lastname &lt;chr&gt;,
-#&gt; #   byline.person_middlename &lt;chr&gt;
+#&gt;  *                                                                       &lt;chr&gt;
+#&gt;  1 https://www.nytimes.com/2017/06/16/world/asia/1mdb-malaysia-najib-razak.htm
+#&gt;  2 https://www.nytimes.com/2017/07/28/sports/football/giants-odell-beckham-con
+#&gt;  3     https://www.nytimes.com/2017/08/04/sports/soccer/neymar-psg-soccer.html
+#&gt;  4 https://www.nytimes.com/2017/08/10/sports/soccer/soccer-capital-lure-of-lon
+#&gt;  5 https://www.nytimes.com/2017/07/19/world/europe/grenfell-tower-fire-donatio
+#&gt;  6 https://www.nytimes.com/2017/07/12/sports/basketball/the-two-men-who-make-m
+#&gt;  7 https://www.nytimes.com/2017/06/24/world/africa/angola-luanda-jose-eduardo-
+#&gt;  8 https://www.nytimes.com/2017/08/04/sports/soccer/wolverhampton-jorge-mendes
+#&gt;  9 https://www.nytimes.com/2017/06/15/sports/soccer/fifa-jorge-luis-arzuaga-pl
+#&gt; 10 https://www.nytimes.com/2017/06/26/sports/tennis/itf-pro-circuit-wozniak-st
+#&gt; # ... with 18 more variables: snippet &lt;chr&gt;, print_page &lt;chr&gt;,
+#&gt; #   source &lt;chr&gt;, multimedia &lt;list&gt;, keywords &lt;list&gt;, pub_date &lt;chr&gt;,
+#&gt; #   document_type &lt;chr&gt;, new_desk &lt;chr&gt;, section_name &lt;chr&gt;,
+#&gt; #   type_of_material &lt;chr&gt;, `_id` &lt;chr&gt;, word_count &lt;int&gt;, score &lt;dbl&gt;,
+#&gt; #   uri &lt;chr&gt;, headline.main &lt;chr&gt;, headline.print_headline &lt;chr&gt;,
+#&gt; #   headline.kicker &lt;chr&gt;, byline.original &lt;chr&gt;
 </code></pre>
 
 <h2>Campaign Finance API</h2>
